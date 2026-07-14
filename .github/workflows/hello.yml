@@ -12,10 +12,10 @@ jobs:
         run: echo "Hello Faruk! GitHub Actions is running."
 
       - name: Show the repository name
-        run: echo "Repository: ${{ github.repository }}"
+        run: 'echo "Repository: ${{ github.repository }}"'
 
       - name: Show the branch name
-        run: echo "Branch: ${{ github.ref_name }}"
+        run: 'echo "Branch: ${{ github.ref_name }}"'
 
       - name: Show who triggered the workflow
-        run: echo "Triggered by: ${{ github.actor }}"
+        run: 'echo "Triggered by: ${{ github.actor }}"'
