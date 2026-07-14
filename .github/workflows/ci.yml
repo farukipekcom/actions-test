@@ -36,3 +36,8 @@ jobs:
 
       - name: Build project
         run: pnpm build
+
+      - name: Read secret
+        run: echo "Hello $MY_NAME"
+        env:
+          MY_NAME: ${{ secrets.MY_NAME }}
