@@ -1,10 +1,10 @@
-name: Install Dependencies
+name: CI
 
 on:
   push:
 
 jobs:
-  install-dependencies:
+  check-project:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,5 +25,8 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Show installed Next.js version
-        run: pnpm next --version
+      - name: Run ESLint
+        run: pnpm lint
+
+      - name: Build project
+        run: pnpm build
