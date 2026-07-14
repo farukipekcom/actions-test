@@ -1,21 +1,29 @@
-name: Hello GitHub Actions
+name: Explore Runner
 
 on:
   push:
 
 jobs:
-  say-hello:
+  explore-runner:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Print a welcome message
-        run: echo "Hello Faruk! GitHub Actions is running."
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Show the repository name
-        run: 'echo "Repository: ${{ github.repository }}"'
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-      - name: Show the branch name
-        run: 'echo "Branch: ${{ github.ref_name }}"'
+      - name: Show Node version
+        run: node -v
 
-      - name: Show who triggered the workflow
-        run: 'echo "Triggered by: ${{ github.actor }}"'
+      - name: Show npm version
+        run: npm -v
+
+      - name: Show current directory
+        run: pwd
+
+      - name: List project files
+        run: ls -la
