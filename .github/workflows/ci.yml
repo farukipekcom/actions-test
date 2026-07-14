@@ -31,13 +31,11 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Run Vitest
+        run: pnpm test
+
       - name: Run ESLint
         run: pnpm lint
 
       - name: Build project
         run: pnpm build
-
-      - name: Read secret
-        run: echo "Hello $MY_NAME"
-        env:
-          MY_NAME: ${{ secrets.MY_NAME }}
